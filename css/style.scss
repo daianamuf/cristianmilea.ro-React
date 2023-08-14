@@ -588,13 +588,17 @@ body {
 
     &--item {
       position: absolute;
-      transition: all 2s;
+      transition: opacity 0.3s, transform 2s, left 2s;
       z-index: 0;
 
       &-1 {
-        left: 15%;
+        left: 20%;
         transform: translateX(-50%);
         opacity: 0.4;
+
+        & img {
+          transform: scale(0.8);
+        }
       }
 
       &-2 {
@@ -602,6 +606,10 @@ body {
         transform: translateX(-50%);
         opacity: 0.8;
         z-index: 1;
+
+        & img {
+          transform: scale(0.9);
+        }
       }
 
       &-3 {
@@ -620,12 +628,20 @@ body {
         transform: translateX(-50%);
         opacity: 0.8;
         z-index: 1;
+
+        & img {
+          transform: scale(0.9);
+        }
       }
 
       &-5 {
-        left: 85%;
+        left: 80%;
         transform: translateX(-50%);
         opacity: 0.4;
+
+        & img {
+          transform: scale(0.8);
+        }
       }
     }
 
@@ -636,6 +652,11 @@ body {
       border-radius: 10px;
       aspect-ratio: 3/2;
       object-fit: contain;
+      transition: all 0.2s;
     }
   }
+}
+
+.hidden {
+  display: none;
 }

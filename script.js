@@ -199,27 +199,26 @@ btnContact.addEventListener("click", function (e) {
 const sponsSlider = document.querySelector(".sponsors__slider");
 const sponsSlides = document.querySelectorAll(".sponsors__slider--item");
 let slidesArray = Array.from(sponsSlides);
-console.log(slidesArray);
 
 const updateSlides = function () {
-  slidesArray.forEach((el) => {
-    el.classList.remove("sponsors__slider--item-1");
-    el.classList.remove("sponsors__slider--item-2");
-    el.classList.remove("sponsors__slider--item-3");
-    el.classList.remove("sponsors__slider--item-4");
-    el.classList.remove("sponsors__slider--item-5");
-  });
-
   slidesArray.forEach((el, i) => {
+    const itemClasses = Array.from(el.classList).filter((cls) =>
+      cls.includes("slider--item-")
+    );
+    el.classList.remove(...itemClasses);
     el.classList.add(`sponsors__slider--item-${i + 1}`);
+
+    if (i >= 5) {
+      el.classList.add("hidden");
+    } else {
+      el.classList.remove("hidden");
+    }
   });
 };
 
 const setCurrentState = function () {
-  slidesArray = [...slidesArray, slidesArray.shift()];
-  // slidesArray.shift();
-  console.log(slidesArray);
+  slidesArray.push(slidesArray.shift());
   updateSlides();
 };
 
-setInterval(setCurrentState(), 1000);
+setInterval(setCurrentState, 2500);
