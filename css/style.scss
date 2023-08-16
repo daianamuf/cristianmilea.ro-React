@@ -336,13 +336,12 @@ body {
   top: 50%;
   z-index: 10;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   background: transparent;
 
   &--left {
     left: 15%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
 
     @media (max-width: 64em) {
       left: 6%;
@@ -351,21 +350,16 @@ body {
 
   &--right {
     right: 15%;
-    transform: translate(50%, -50%);
+    transform: translate(50%, 50%);
 
     @media (max-width: 64em) {
       right: 6%;
     }
   }
-}
 
-.icon__arrow {
-  height: 5.5rem;
-  width: 5.5rem;
-
-  @media (max-width: 64em) {
-    height: 4rem;
-    width: 4rem;
+  & i {
+    font-size: $font-big;
+    color: $color-accent_red;
   }
 }
 
@@ -508,8 +502,9 @@ body {
       height: 5rem;
       border: none;
       border-radius: 10px;
-      color: #fff;
+      color: #e6e6e6;
       font-size: $font-small;
+      font-weight: 600;
       letter-spacing: 0.2px;
       cursor: pointer;
       align-self: center;
@@ -555,12 +550,37 @@ body {
 
   box-shadow: 0px -6px 20px 7px $color-grey-dark;
 
-  &_logo {
+  &__logo {
     grid-column: 2/3;
     grid-row: 2/3;
     align-self: end;
     justify-self: end;
     padding: 2rem 5rem;
+  }
+
+  &__social-media {
+    grid-column: 2/3;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    gap: 2rem;
+
+    &--link:link,
+    &--link:visited {
+      text-decoration: none;
+
+      & i {
+        color: $color-accent_blue;
+        font-size: 4rem;
+      }
+    }
+
+    &--link:hover,
+    &--link:active {
+      & i {
+        color: $color-accent_blue-darker;
+      }
+    }
   }
 }
 
@@ -659,4 +679,19 @@ body {
 
 .hidden {
   display: none;
+}
+
+.btn-up {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  transition: all 0.2s;
+
+  & i {
+    color: #fff;
+    font-size: $font-big;
+  }
 }

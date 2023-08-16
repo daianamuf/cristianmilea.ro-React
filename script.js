@@ -222,3 +222,48 @@ const setCurrentState = function () {
 };
 
 setInterval(setCurrentState, 2500);
+
+// Slide to home btn //
+const upBtn = document.querySelector(".btn-up");
+const footer = document.querySelector(".footer");
+
+upBtn.addEventListener("click", function (e) {
+  hero.scrollIntoView({
+    behavior: "smooth",
+  });
+});
+
+const scrollUp = function (entries, observer) {
+  const [entry] = entries;
+
+  if (entry.isIntersecting) {
+    upBtn.classList.add("hidden");
+  } else {
+    upBtn.classList.remove("hidden");
+  }
+};
+
+const scrollUpObserver = new IntersectionObserver(scrollUp, {
+  root: null,
+  threshold: 0.1,
+});
+
+scrollUpObserver.observe(hero);
+
+const scrollUpOnFooter = function (entries, observer) {
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    upBtn.style.bottom = "30%";
+  } else {
+    upBtn.style.bottom = "10%";
+  }
+
+  observer.unobserve(entry);
+};
+
+const scrollUpFooterObserver = new IntersectionObserver(scrollUpOnFooter, {
+  root: null,
+  threshold: 0.2,
+});
+
+scrollUpFooterObserver.observe(footer);

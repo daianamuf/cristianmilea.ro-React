@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cristian Milea's Website</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -64,6 +69,9 @@
         </div>
       </div>
     </section>
+    <button class="btn-up">
+      <i class="ph ph-arrow-circle-up"></i>
+    </button>
     <section class="slider-container section">
       <h2 class="slider-container__heading heading heading__hidden">
         Despre mine
@@ -148,18 +156,10 @@
         </div>
       </div>
       <button class="slider__btn slider__btn--left">
-        <img
-          src="icons_and_fonts/arrow-left-circle-svgrepo-com.svg"
-          alt="Left Arrow"
-          class="icon__arrow icon__arrow--left"
-        />
+        <i class="ph ph-arrow-circle-left"></i>
       </button>
       <button class="slider__btn slider__btn--right">
-        <img
-          src="icons_and_fonts/arrow-right-circle-svgrepo-com.svg"
-          alt="Right Arrow"
-          class="icon__arrow icon__arrow--right"
-        />
+        <i class="ph ph-arrow-circle-right"></i>
       </button>
       <div class="dots"></div>
     </section>
@@ -223,7 +223,7 @@
     </section>
 
     <section class="contact section">
-      <h2 class="heading">Contact</h2>
+      <h2 class="heading heading__hidden">Contact</h2>
       <form
         class="contact__form"
         action="https://api.web3forms.com/submit"
@@ -291,8 +291,24 @@
         </div>
       </section>
 
-      <div class="footer_social-media"></div>
-      <p class="footer_logo logo">The Fastest</p>
+      <div class="footer__social-media">
+        <a href="" class="footer__social-media--link youtube">
+          <i class="ph ph-youtube-logo"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/milea.cristian.88/"
+          class="footer__social-media--link instagram"
+        >
+          <i class="ph ph-instagram-logo"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/milea.cristian.79"
+          class="footer__social-media--link facebook"
+        >
+          <i class="ph ph-facebook-logo"></i>
+        </a>
+      </div>
+      <p class="footer__logo logo">The Fastest</p>
     </footer>
   </body>
 </html>

@@ -288,13 +288,12 @@ body {
   top: 50%;
   z-index: 10;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   background: transparent;
 }
 .slider__btn--left {
   left: 15%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
 }
 @media (max-width: 64em) {
   .slider__btn--left {
@@ -303,23 +302,16 @@ body {
 }
 .slider__btn--right {
   right: 15%;
-  transform: translate(50%, -50%);
+  transform: translate(50%, 50%);
 }
 @media (max-width: 64em) {
   .slider__btn--right {
     right: 6%;
   }
 }
-
-.icon__arrow {
-  height: 5.5rem;
-  width: 5.5rem;
-}
-@media (max-width: 64em) {
-  .icon__arrow {
-    height: 4rem;
-    width: 4rem;
-  }
+.slider__btn i {
+  font-size: 6rem;
+  color: #ff002b;
 }
 
 .dots {
@@ -437,8 +429,9 @@ body {
   height: 5rem;
   border: none;
   border-radius: 10px;
-  color: #fff;
+  color: #e6e6e6;
   font-size: 1.6rem;
+  font-weight: 600;
   letter-spacing: 0.2px;
   cursor: pointer;
   align-self: center;
@@ -465,12 +458,29 @@ body {
   background-image: radial-gradient(at 12% 91%, #800016 0px, transparent 50%), radial-gradient(at 76% 19%, hsl(20, 71%, 75%) 0px, transparent 50%), radial-gradient(at 62% 34%, hsl(355, 87%, 75%) 0px, transparent 50%), radial-gradient(at 45% 31%, hsl(1, 82%, 61%) 0px, transparent 50%);
   box-shadow: 0px -6px 20px 7px #121011;
 }
-.footer_logo {
+.footer__logo {
   grid-column: 2/3;
   grid-row: 2/3;
   align-self: end;
   justify-self: end;
   padding: 2rem 5rem;
+}
+.footer__social-media {
+  grid-column: 2/3;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  gap: 2rem;
+}
+.footer__social-media--link:link, .footer__social-media--link:visited {
+  text-decoration: none;
+}
+.footer__social-media--link:link i, .footer__social-media--link:visited i {
+  color: #657cad;
+  font-size: 4rem;
+}
+.footer__social-media--link:hover i, .footer__social-media--link:active i {
+  color: #344360;
 }
 
 .sponsors {
@@ -555,4 +565,18 @@ body {
 
 .hidden {
   display: none;
+}
+
+.btn-up {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  transition: all 0.2s;
+}
+.btn-up i {
+  color: #fff;
+  font-size: 6rem;
 }/*# sourceMappingURL=style.css.map */
