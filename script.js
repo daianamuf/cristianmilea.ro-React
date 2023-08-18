@@ -47,6 +47,7 @@ const sliderBtnLeft = document.querySelector(".slider__btn--left");
 const sliderBtnRight = document.querySelector(".slider__btn--right");
 let currSlide = 0;
 const maxSlide = slides.length;
+const mediaQueryTablet = window.matchMedia("(max-width: 48em)");
 
 const dotContainer = document.querySelector(".dots");
 
@@ -70,9 +71,13 @@ const activateDot = function (slide) {
 };
 
 const goToSlide = function (slide) {
-  slides.forEach(
-    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-  );
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+
+    if (mediaQueryTablet.matches) {
+      s.style.transform = `translateX(${120 * (i - slide)}%)`;
+    }
+  });
 };
 
 const nextSlide = function () {
@@ -143,7 +148,7 @@ const observerHeading = new IntersectionObserver(
 
 headings.forEach((heading) => observerHeading.observe(heading));
 
-// Sticky nav //
+// // Sticky nav //
 const hero = document.querySelector(".hero-section");
 const nav = document.querySelector(".nav");
 const navHeight = nav.getBoundingClientRect().height;
@@ -257,8 +262,6 @@ const scrollUpOnFooter = function (entries, observer) {
   } else {
     upBtn.style.bottom = "10%";
   }
-
-  observer.unobserve(entry);
 };
 
 const scrollUpFooterObserver = new IntersectionObserver(scrollUpOnFooter, {
@@ -267,3 +270,16 @@ const scrollUpFooterObserver = new IntersectionObserver(scrollUpOnFooter, {
 });
 
 scrollUpFooterObserver.observe(footer);
+
+///////////////
+const mediaQueryPhone = window.matchMedia("(max-width: 34.9em)");
+const statsHeading = document.querySelector(".stats-section__heading");
+const headingQuery = function () {
+  if (mediaQueryPhone.matches) {
+    statsHeading.innerHTML =
+      "Campion Mondial, European &#351;i Na&#539;ional &#238;n K1 la Categoria Lightweight";
+  }
+};
+headingQuery();
+
+////////////////////////////////
