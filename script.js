@@ -1,5 +1,20 @@
 "use strict";
 
+import PhotoSwipeLightbox from "./node_modules/photoswipe/dist/photoswipe-lightbox.esm.js";
+
+const isMobile = (userAgent) => {
+  return !!(
+    userAgent.toLowerCase().match(/android/i) ||
+    userAgent.toLowerCase().match(/blackberry|bb/i) ||
+    userAgent.toLowerCase().match(/iphone|ipad|ipod/i) ||
+    userAgent
+      .toLowerCase()
+      .match(/windows phone|windows mobile|iemobile|wpdesktop/i)
+  );
+};
+
+const onMobile = isMobile(window.navigator.userAgent);
+
 // Stats timer //
 const valueDisplays = document.querySelectorAll(".number");
 const stats = document.querySelector(".stats-section__statistics");
@@ -50,6 +65,10 @@ const maxSlide = slides.length;
 const mediaQueryTablet = window.matchMedia("(max-width: 48em)");
 
 const dotContainer = document.querySelector(".dots");
+
+if (onMobile) {
+  slider.classList.add("mobile");
+}
 
 const createDots = function () {
   slides.forEach(function (s, i) {
@@ -255,7 +274,7 @@ const scrollUpObserver = new IntersectionObserver(scrollUp, {
 
 scrollUpObserver.observe(hero);
 
-const scrollUpOnFooter = function (entries, observer) {
+const scrollUpFooter = function (entries, observer) {
   const [entry] = entries;
   if (entry.isIntersecting) {
     upBtn.style.bottom = "30%";
@@ -264,14 +283,14 @@ const scrollUpOnFooter = function (entries, observer) {
   }
 };
 
-const scrollUpFooterObserver = new IntersectionObserver(scrollUpOnFooter, {
+const scrollUpFooterObserver = new IntersectionObserver(scrollUpFooter, {
   root: null,
   threshold: 0.2,
 });
 
 scrollUpFooterObserver.observe(footer);
 
-///////////////
+/////////////////////////////
 const mediaQueryPhone = window.matchMedia("(max-width: 34.9em)");
 const statsHeading = document.querySelector(".stats-section__heading");
 const headingQuery = function () {
@@ -283,3 +302,11 @@ const headingQuery = function () {
 headingQuery();
 
 ////////////////////////////////
+
+const lightbox = new PhotoSwipeLightbox({
+  gallery: "#gallery__wrapper",
+  children: "a",
+  pswpModule: () => import("./node_modules/photoswipe/dist/photoswipe.esm.js"),
+});
+
+lightbox.init();

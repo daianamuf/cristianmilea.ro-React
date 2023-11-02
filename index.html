@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cristian Milea's Website</title>
+    <base href="/" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -16,9 +16,20 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,200;0,400;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
+    <!-- <link rel="stylesheet" href="photoswipe/dist/photoswipe.css" /> -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/photoswipe/dist/photoswipe.css"
+    />
 
     <link rel="stylesheet" href="css/style.css" />
-    <script defer src="script.js"></script>
+    <script defer src="script.js" type="module"></script>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🥊</text></svg>"
+    />
+    <title>Cristian Milea "The Fastest"</title>
   </head>
   <body>
     <nav class="nav sticky">
@@ -166,62 +177,62 @@
       </button>
       <div class="dots"></div>
     </section>
-
     <section class="gallery section">
       <h2 class="gallery__heading heading heading__hidden">Galerie</h2>
-      <div class="gallery__wrapper">
-        <figure class="gallery__item big_stretch">
-          <a
-            class="gallery__link"
-            target="_blank"
-            href="https://www.youtube.com/watch?v=xYmI1HRWMO0"
-          >
-            <img
-              class="gallery__img"
-              src="images/youtube_gorbicz.jpg"
-              alt="Cristian Milea vs Gabor Gorbicz"
-            />
-          </a>
-        </figure>
-        <figure class="gallery__item h_stretch">
+
+      <div id="gallery__wrapper" class="pswp-gallery gallery__wrapper">
+        <a
+          class="gallery__link gallery__item big_stretch"
+          target="_blank"
+          href="https://www.youtube.com/watch?v=xYmI1HRWMO0"
+          data-type="youtube"
+        >
+          <img
+            class="gallery__img"
+            src="images/youtube_gorbicz.jpg"
+            alt="Cristian Milea vs Gabor Gorbicz"
+          />
+        </a>
+
+        <a href="images/gallery_3.jpg" class="gallery__item h_stretch">
           <img src="images/gallery_3.jpg" alt="" class="gallery__img" />
-        </figure>
-        <figure class="gallery__item h_strech">
+        </a>
+        <a href="images/gallery_1.jpg" class="gallery__item h_strech">
           <img class="gallery__img" src="images/gallery_1.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item v_stretch">
+        </a>
+        <a href="images/gallery_2.jpg" class="gallery__item v_stretch">
           <img class="gallery__img" src="images/gallery_2.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item h_stretch">
+        </a>
+        <a href="images/gallery_4.jpg" class="gallery__item h_stretch">
           <img src="images/gallery_4.jpg" alt="" class="gallery__img" />
-        </figure>
-        <figure class="gallery__item big_stretch">
-          <a
-            target="_blank"
-            href="https://www.youtube.com/watch?v=88xijKlqYDQ"
-            class="gallery__link"
-          >
-            <img
-              src="images/youtube_petrosyan.jpg"
-              alt="Armen Petrosyan VS Cristian Milea"
-              class="gallery__img"
-          /></a>
-        </figure>
-        <figure class="gallery__item v_stretch">
+        </a>
+        <a
+          target="_blank"
+          href="https://www.youtube.com/watch?v=88xijKlqYDQ"
+          class="gallery__link gallery__item big_stretch"
+          data-type="youtube"
+        >
+          <img
+            src="images/youtube_petrosyan.jpg"
+            alt="Armen Petrosyan VS Cristian Milea"
+            class="gallery__img"
+        /></a>
+
+        <a src="images/gallery_5.jpg" class="gallery__item v_stretch">
           <img class="gallery__img" src="images/gallery_5.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item h-stretch">
+        </a>
+        <a src="images/gallery_6.jpg" class="gallery__item h-stretch">
           <img class="gallery__img" src="images/gallery_6.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item h-stretch">
+        </a>
+        <a href="images/gallery_9.jpg" class="gallery__item h-stretch">
           <img class="gallery__img" src="images/gallery_9.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item h-stretch">
+        </a>
+        <a href="images/gallery_7.jpg" class="gallery__item h-stretch">
           <img class="gallery__img" src="images/gallery_7.jpg" alt="" />
-        </figure>
-        <figure class="gallery__item h-stretch">
+        </a>
+        <a href="images/gallery_8.jpg" class="gallery__item h-stretch">
           <img class="gallery__img" src="images/gallery_8.jpg" alt="" />
-        </figure>
+        </a>
       </div>
     </section>
 
@@ -295,17 +306,19 @@
       </section>
 
       <div class="footer__social-media">
-        <a href="" class="footer__social-media--link youtube">
+        <a href="" target="_blank" class="footer__social-media--link youtube">
           <i class="ph ph-youtube-logo"></i>
         </a>
         <a
           href="https://www.instagram.com/milea.cristian.88/"
+          target="_blank"
           class="footer__social-media--link instagram"
         >
           <i class="ph ph-instagram-logo"></i>
         </a>
         <a
           href="https://www.facebook.com/milea.cristian.79"
+          target="_blank"
           class="footer__social-media--link facebook"
         >
           <i class="ph ph-facebook-logo"></i>
