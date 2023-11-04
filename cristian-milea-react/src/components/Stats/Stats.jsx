@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import styles from "./Stats.module.css";
+import classNames from "classnames";
 
 function Stats() {
   const headingRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const headingClass = classNames(styles.heading, {
+    [styles.slideIn]: isVisible,
+    [styles.slideOut]: !isVisible,
+  });
 
   useEffect(() => {
     const currentRef = headingRef.current;
@@ -11,27 +18,25 @@ function Stats() {
         const [entry] = entries;
         setIsVisible(entry.isIntersecting);
       },
-      { root: null, threshold: 1 }
+      { root: null, rootMargin: "0px", threshold: 0.6 }
     );
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(currentRef);
+
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      observer.unobserve(currentRef);
     };
   }, [isVisible]);
 
-  console.log(isVisible);
+  // console.log(isVisible);
 
   return (
     <section className="stats-section section">
       <h2
-        className={`stats-section__heading heading  ${
-          isVisible === true ? "slide-in" : "slide-out"
-        } `}
+        // className={`stats-section__heading heading  ${
+        //   isVisible === true ? "slide-in" : "slide-out"
+        // } `}
+        className={headingClass}
         ref={headingRef}
       >
         <span> Campion Mondial, European &#351;i Na&#539;ional</span>

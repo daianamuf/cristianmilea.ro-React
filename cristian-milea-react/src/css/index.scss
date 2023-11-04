@@ -1,3 +1,5 @@
+@import "variables";
+
 *,
 *::before,
 *::after {
@@ -19,32 +21,6 @@ html {
   initial-value: 0;
   inherits: false;
 }
-
-@font-face {
-  font-family: Fear of Punk;
-  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
-}
-
-//FONT FAMILY
-$font-text: "Archivo";
-$font-heading: "Archivo Black";
-
-//TYPESCALE
-$font-smallest: 1.4rem;
-$font-small: 1.6rem;
-$font-medium: 2rem;
-$font-big: 6rem;
-$font-biggest: 7.5rem;
-
-//COLORS
-$color-accent_red: #ff002b;
-$color-accent_red-darker: rgb(192, 0, 33);
-$color-accent-red-darkest: #800016;
-$color-accent_blue: #657cad;
-$color-accent_blue-darker: #344360;
-$color-blue-dark: #151b26;
-$color-grey-light: #b3a5ac;
-$color-grey-dark: #121011;
 
 body {
   font-family: $font-text, sans-serif;
@@ -392,7 +368,7 @@ body {
 
 .heading {
   display: block;
-  color: red;
+  color: #fff;
   font-size: $font-big;
   font-family: $font-heading;
   text-align: center;
@@ -441,18 +417,18 @@ body {
 //   opacity: 1;
 // }
 
-.heading.slide-in {
-  transform: translate(0);
-  opacity: 1;
-  transition: all 2s;
-}
+// .heading.slide-in {
+//   transform: translate(0);
+//   opacity: 1;
+//   transition: all 2s;
+// }
 
-.heading.slide-out {
-  transform: translateX(-50rem);
-  opacity: 0;
-  transition: all 2s;
-  display: none;
-}
+// .heading.slide-out {
+//   transform: translateX(-50rem);
+//   opacity: 0;
+//   transition: all 2s;
+//   display: none;
+// }
 
 .slider-container {
   position: relative;
@@ -786,13 +762,6 @@ body {
       top: 50%;
       left: 50%;
       z-index: 5;
-    }
-  }
-
-  &__link:hover,
-  &__link:active {
-    & img {
-      // display: none;
     }
   }
 }

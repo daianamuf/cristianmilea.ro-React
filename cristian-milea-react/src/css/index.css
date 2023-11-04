@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
 *,
 *::before,
 *::after {
@@ -19,10 +23,6 @@ html {
   syntax: "<integer>";
   initial-value: 0;
   inherits: false;
-}
-@font-face {
-  font-family: Fear of Punk;
-  src: url("/public/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
 }
 body {
   font-family: "Archivo", sans-serif;
@@ -484,19 +484,6 @@ body {
   }
 }
 
-.slide-in {
-  transform: translate(0);
-  opacity: 1;
-  transition: all 2s;
-}
-
-.slideOut {
-  transform: translateX(-50rem);
-  opacity: 0;
-  transition: all 2s;
-  display: none;
-}
-
 .slider-container {
   position: relative;
   margin-bottom: 10rem;
@@ -852,6 +839,7 @@ body {
   left: 50%;
   z-index: 5;
 }
+
 .h_stretch {
   grid-row: span 2;
 }
