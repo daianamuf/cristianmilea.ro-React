@@ -1,9 +1,43 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
 .heading {
-  display: block;
   color: #fff;
+  font-size: 6rem;
+  font-family: "Archivo Black";
   text-align: center;
   margin-bottom: 6rem;
   transition: all 1s;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 64em) {
+  .heading {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 48em) {
+  .heading {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 53.7em) {
+  .heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 34.9em) {
+  .heading {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .heading {
+    margin-bottom: 2.6rem;
+  }
 }
 
 .slideIn {
@@ -16,4 +50,120 @@
   transform: translateX(-20rem);
   opacity: 0;
   transition: all 1s;
-} /*# sourceMappingURL=Stats.module.css.map */
+}
+
+.stats-section {
+  min-height: 65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 6rem;
+  background: #151b26;
+}
+@media (max-width: 53.7em) {
+  .stats-section {
+    min-height: 45rem;
+  }
+}
+@media (max-width: 48em) {
+  .stats-section {
+    min-height: 40rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .stats-section {
+    min-height: 43rem;
+    margin-bottom: 10rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .stats-section {
+    margin-bottom: 5rem;
+  }
+}
+@media (max-width: 40.2em) {
+  .stats-section .heading {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 34.9em) {
+  .stats-section .heading {
+    padding: 0rem 2rem;
+    font-size: 2.2rem;
+  }
+}
+.stats-section__statistics {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10rem;
+  color: #344360;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+}
+@media (max-width: 64em) {
+  .stats-section__statistics {
+    gap: 5rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .stats-section__statistics {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+    row-gap: 3rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .stats-section__statistics {
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+  }
+}
+.stats-section__statistics--elem {
+  height: 20rem;
+  width: 20rem;
+  padding: 3rem 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+@media (max-width: 64em) {
+  .stats-section__statistics--elem {
+    height: 18rem;
+    width: 18rem;
+  }
+}
+@media (max-width: 53.7em) {
+  .stats-section__statistics--elem {
+    height: 16rem;
+    width: 16rem;
+  }
+}
+@media (max-width: 48em) {
+  .stats-section__statistics--elem {
+    height: 14rem;
+    width: 14rem;
+    padding: 2rem;
+  }
+}
+.stats-section__statistics--elem p {
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 48em) {
+  .stats-section__statistics--elem p {
+    font-size: 1.6rem;
+  }
+}
+.stats-section__statistics--elem .number {
+  color: rgb(192, 0, 33);
+  font-size: 7.5rem;
+}
+@media (max-width: 48em) {
+  .stats-section__statistics--elem .number {
+    font-size: 6rem;
+  }
+}/*# sourceMappingURL=Stats.module.css.map */

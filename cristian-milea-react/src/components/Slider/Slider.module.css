@@ -1,0 +1,354 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.slider-container {
+  position: relative;
+  margin-bottom: 10rem;
+  padding-top: 6rem;
+}
+@media (max-width: 53.7em) {
+  .slider-container {
+    padding-top: 8rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .slider-container {
+    margin-bottom: 2rem;
+  }
+}
+.slider-container__heading {
+  margin-bottom: 5rem;
+}
+@media (max-width: 48em) {
+  .slider-container__heading {
+    margin-bottom: 3.5rem;
+  }
+}
+
+.slider {
+  max-width: 80rem;
+  height: 50rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 7rem;
+  overflow: hidden;
+}
+@media (max-width: 53.7em) {
+  .slider {
+    height: 40rem;
+    max-width: 70rem;
+    margin-bottom: 6rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .slider {
+    max-width: 40rem;
+    height: 56rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .slider {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 20em) {
+  .slider {
+    width: 30rem;
+  }
+}
+
+.mobile.slider {
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.mobile.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile .slide {
+  scroll-snap-align: start;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  height: 50rem;
+  flex: 0 0 100%;
+  max-width: 100%;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  overflow: hidden;
+  display: none;
+}
+@media (max-width: 53.7em) {
+  .slide {
+    height: 40rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .slide {
+    flex-direction: column-reverse;
+    height: 56rem;
+    gap: 1rem;
+  }
+}
+@media (max-width: 20em) {
+  .slide {
+    width: 30rem;
+    height: 60rem;
+  }
+}
+.slide-text {
+  height: 50rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+  background: linear-gradient(0deg, rgb(21, 27, 38) 0%, rgb(128, 0, 22) 100%);
+  font-size: 2rem;
+  line-height: 1.4;
+  padding: 12rem 3.2rem;
+}
+@media (max-width: 53.7em) {
+  .slide-text {
+    height: 40rem;
+    font-size: 1.6rem;
+    padding: 4rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .slide-text {
+    min-height: 25rem;
+    width: 40rem;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+  }
+}
+@media (max-width: 20em) {
+  .slide-text {
+    width: 30rem;
+    min-height: 30rem;
+  }
+}
+.slide-img {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 50rem;
+  aspect-ratio: 3/4;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 53.7em) {
+  .slide-img {
+    height: 40rem;
+    width: 50rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .slide-img {
+    aspect-ratio: 4/5;
+    height: auto;
+    width: 30rem;
+    border-radius: 10px;
+  }
+}
+
+.slide--3 .slide-text {
+  flex: 0 0 50%;
+  padding: 5rem;
+}
+@media (max-width: 43.8em) {
+  .slide--3 .slide-text {
+    padding: 2rem 3rem;
+    order: 6;
+    height: 25rem;
+    width: 40rem;
+  }
+}
+@media (max-width: 20em) {
+  .slide--3 .slide-text {
+    width: 30rem;
+    min-height: 30rem;
+  }
+}
+
+.slide-text-list {
+  flex: 0 0 45%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 50rem;
+  color: white;
+  background: linear-gradient(0deg, rgb(21, 27, 38) 0%, rgb(128, 0, 22) 100%);
+  font-size: 2rem;
+  line-height: 1.4;
+  padding: 5rem;
+}
+@media (max-width: 53.7em) {
+  .slide-text-list {
+    height: 40rem;
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 43.8em) {
+  .slide-text-list {
+    height: 25rem;
+    width: 40rem;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+    order: 5;
+  }
+}
+@media (max-width: 20em) {
+  .slide-text-list {
+    width: 30rem;
+    min-height: 30rem;
+  }
+}
+
+.slide--4 .slide-img {
+  -o-object-position: 20%;
+     object-position: 20%;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+@media (max-width: 48em) {
+  .slider__btn {
+    display: none;
+  }
+}
+.slider__btn--left {
+  left: 15%;
+  transform: translate(-50%, 50%);
+}
+@media (max-width: 64em) {
+  .slider__btn--left {
+    left: 6%;
+  }
+}
+@media (max-width: 53.7em) {
+  .slider__btn--left {
+    left: 4%;
+  }
+}
+.slider__btn--right {
+  right: 15%;
+  transform: translate(50%, 50%);
+}
+@media (max-width: 64em) {
+  .slider__btn--right {
+    right: 6%;
+  }
+}
+@media (max-width: 53.7em) {
+  .slider__btn--right {
+    right: 4%;
+  }
+}
+.slider__btn .icon {
+  font-size: 6rem;
+  color: #ff002b;
+}
+@media (max-width: 53.7em) {
+  .slider__btn .icon {
+    font-size: 4.8rem;
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+@media (max-width: 48em) {
+  .dots {
+    display: none;
+  }
+}
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.dots__dot:last-child {
+  margin: 0;
+}
+.dots__dot--active {
+  background-color: #ff002b;
+  opacity: 1;
+}
+
+.activeSlide {
+  display: flex;
+}
+
+.heading {
+  color: #fff;
+  font-size: 6rem;
+  font-family: "Archivo Black";
+  text-align: center;
+  margin-bottom: 6rem;
+  transition: all 1s;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 64em) {
+  .heading {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 48em) {
+  .heading {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 53.7em) {
+  .heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+@media (max-width: 34.9em) {
+  .heading {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .heading {
+    margin-bottom: 2.6rem;
+  }
+}
+
+.slideIn {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 1s;
+}
+
+.slideOut {
+  transform: translateX(-20rem);
+  opacity: 0;
+  transition: all 1s;
+}/*# sourceMappingURL=Slider.module.css.map */
