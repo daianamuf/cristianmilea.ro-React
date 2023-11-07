@@ -71,6 +71,7 @@
   height: 50rem;
   flex: 0 0 100%;
   max-width: 100%;
+  // transform: translateX(0);
   transition: all 0.5s ease-in-out;
 
   display: flex;
@@ -251,7 +252,7 @@
 
 .dots {
   position: absolute;
-  bottom: 5%;
+  bottom: -10%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

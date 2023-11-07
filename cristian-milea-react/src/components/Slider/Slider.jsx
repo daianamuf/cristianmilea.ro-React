@@ -19,6 +19,7 @@ function Slider() {
         const res = await fetch("/slides-data.json");
         const data = await res.json();
         setSlides(data);
+        // setSlides([data[0], ...data, data[data.length - 1]]);
       } catch (err) {
         console.log("Error getting slides: ", err);
       }
@@ -29,14 +30,21 @@ function Slider() {
   const {
     carouselRef,
     transitionEnabled,
-    next,
-    prev,
+    // translateX,
     adjustedIndex,
-    translateX,
+    debouncedNext,
+    debouncePrev,
+    slideMovement,
+    goToSlide,
   } = useInfiniteCarousel(slides.length);
 
-  const containerStyles = {
-    transform: `translateX(${translateX}px)`,
+  // const containerStyles = {
+  //   transform: `translateX(${0}px)`,
+  //   transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
+  // };
+
+  const slideStyles = {
+    transform: `translateX(${slideMovement}px)`,
     transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
   };
 
@@ -45,13 +53,14 @@ function Slider() {
       <h2 className={headingClass} ref={headingRef}>
         Despre mine
       </h2>
-      <div className={styles.slider} ref={carouselRef} style={containerStyles}>
+      <div className={styles.slider} ref={carouselRef}>
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={
               index === adjustedIndex ? styles.activeSlide : styles.slide
             }
+            style={slideStyles}
           >
             <p className={styles["slide-text"]}>{slide.text}</p>
 
@@ -70,7 +79,7 @@ function Slider() {
 
       <button
         className={`${styles.slider__btn} ${styles["slider__btn--left"]}`}
-        onClick={prev}
+        onClick={debouncePrev}
       >
         <ArrowCircleLeft
           className={`${styles.icon} ${styles["icon-arrow-circle-left"]}`}
@@ -78,13 +87,26 @@ function Slider() {
       </button>
       <button
         className={`${styles.slider__btn} ${styles["slider__btn--right"]}`}
-        onClick={next}
+        onClick={debouncedNext}
       >
         <ArrowCircleRight
           className={`${styles.icon} ${styles["icon-arrow-circle-right"]}`}
         ></ArrowCircleRight>
       </button>
-      <div className={styles.dots}></div>
+      <div className={styles.dots}>
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={
+              index === adjustedIndex
+                ? `${styles["dots__dot"]} ${styles["dots__dot--active"]}`
+                : styles["dots__dot"]
+            }
+            onClick={() => goToSlide(index)}
+          />
+        ))}
+        ;
+      </div>
     </section>
   );
 }
