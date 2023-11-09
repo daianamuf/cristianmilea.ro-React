@@ -1,67 +1,115 @@
 import { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import styles from "./Stats.module.css";
 import Heading from "../Heading/Heading";
 
-function Stats({ initialStats }) {
-  const [stats, setStats] = useState(initialStats);
+const statsData = [
+  { name: "Meciuri", value: 97, displayValue: 0 },
+  { name: "Victorii", value: 77, displayValue: 0 },
+  { name: "Knockouts", value: 26, displayValue: 0 },
+  { name: "Înfrângeri", value: 20, displayValue: 0 },
+];
+
+function Stats() {
+  const [stats, setStats] = useState(statsData);
   const statsRef = useRef(null);
+  const intervalRef = useRef([]);
+  const interval = 5000;
 
   // Stats Observer
+  // useEffect(() => {
+  //   const intervals = [];
+  //   const interval = 5000;
+
+  //   const startCounters = () => {
+  //     stats.forEach((stat, index) => {
+  //       let startValue = 0;
+  //       let endValue = stat.value;
+  //       let duration = Math.floor(interval / endValue);
+
+  //       const counter = setInterval(() => {
+  //         startValue++;
+  //         // stat.displayValue = startValue;
+  //         setStats((prevStats) => {
+  //           const newStats = [...prevStats];
+  //           newStats[index].displayValue = startValue;
+  //           return newStats;
+  //         });
+  //         if (startValue === endValue) {
+  //           clearInterval(counter);
+  //         }
+  //       }, duration);
+  //       intervals.push(counter);
+  //     });
+  //   };
+
+  //   const observerOptions = {
+  //     root: null,
+  //     threshold: 1.0,
+  //     rootMargin: "0px",
+  //   };
+  //   const statsObserver = (entries) => {
+  //     const [entry] = entries;
+  //     if (entry.isIntersecting) {
+  //       startCounters();
+  //       observer.observe(statsRef.current);
+  //     }
+  //   };
+
+  //   const observer = new IntersectionObserver(statsObserver, observerOptions);
+
+  //   if (statsRef.current) {
+  //     observer.observe(statsRef.current);
+  //   }
+
+  //   return () => {
+  //     observer.disconnect();
+  //     intervals.forEach(clearInterval);
+  //   };
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // });
+
   useEffect(() => {
-    const intervals = [];
-    const interval = 5000;
-
-    const startCounters = () => {
-      stats.forEach((stat, index) => {
-        let startValue = 0;
-        let endValue = stat.value;
-        let duration = Math.floor(interval / endValue);
-
-        const counter = setInterval(() => {
-          startValue += 1;
-          stat.displayValue = startValue;
-          setStats((prevStats) => {
-            const newStats = [...prevStats];
-            newStats[index].displayValue = startValue;
-            return newStats;
-          });
-          if (startValue === endValue) {
-            clearInterval(counter);
+    const currentIntervalRef = intervalRef.current;
+    const updateValue = (index, endValue) => {
+      let duration = Math.floor(interval / endValue);
+      intervalRef.current[index] = setInterval(() => {
+        setStats((prevStats) => {
+          const nextValue = prevStats[index].displayValue + 1;
+          if (nextValue === endValue) {
+            clearInterval(intervalRef.current[index]);
           }
-        }, duration);
-        intervals.push(counter);
-      });
+          return prevStats.map((stat, i) => {
+            if (i === index) {
+              return { ...stat, displayValue: nextValue };
+            }
+            return stat;
+          });
+        });
+      }, duration);
     };
 
-    const observerOptions = {
-      root: null,
-      threshold: 1.0,
-      rootMargin: "0px",
-    };
-    const handleIntersection = (entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        startCounters();
-        observer.observe(statsRef.current);
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      handleIntersection,
-      observerOptions
+    const observerStats = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            stats.forEach((stat, index) => updateValue(index, stat.value));
+            observerStats.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, threshold: 1 }
     );
 
     if (statsRef.current) {
-      observer.observe(statsRef.current);
+      observerStats.observe(statsRef.current);
     }
 
     return () => {
-      observer.disconnect();
-      intervals.forEach(clearInterval);
+      currentIntervalRef.forEach(clearInterval);
+      observerStats.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  }, []);
 
   return (
     <section className="stats-section section">
@@ -79,7 +127,7 @@ function Stats({ initialStats }) {
               data-val={stat.value}
             >
               <p>{stat.name}</p>
-              <span className={styles.number}>{stat.displayValue || 0}</span>
+              <span className={styles.number}>{stat.displayValue}</span>
             </div>
           );
         })}
@@ -87,15 +135,5 @@ function Stats({ initialStats }) {
     </section>
   );
 }
-
-Stats.propTypes = {
-  initialStats: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-      displayValue: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-};
 
 export default Stats;

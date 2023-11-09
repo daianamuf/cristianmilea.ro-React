@@ -1,18 +1,13 @@
 import styles from "./Slider.module.css";
-import classNames from "classnames";
+
 import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
-import useHeadingIntersectionObserver from "../../useHeadingIntersectionObserver";
+
 import useInfiniteCarousel from "../../useInfiniteCarousel";
 import { useEffect, useState } from "react";
 import Heading from "../Heading/Heading";
 
 function Slider() {
   const [slides, setSlides] = useState([]);
-  const { headingRef, isVisible } = useHeadingIntersectionObserver();
-  const headingClass = classNames(styles.heading, {
-    [styles.slideIn]: isVisible,
-    [styles.slideOut]: !isVisible,
-  });
 
   useEffect(() => {
     async function getSlidesData() {
