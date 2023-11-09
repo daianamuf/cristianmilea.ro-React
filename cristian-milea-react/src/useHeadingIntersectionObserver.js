@@ -6,23 +6,25 @@ function useHeadingIntersectionObserver() {
 
   useEffect(() => {
     const currentRef = headingRef.current;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setIsVisible(entry.isIntersecting);
-      },
-      { root: null, rootMargin: "0px", threshold: 0.6 }
-    );
 
     if (currentRef) {
-      observer.observe(currentRef);
-    }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { root: null, threshold: 0.6 }
+      );
 
-    return () => {
-      if (currentRef) {
+      observer.observe(currentRef);
+
+      return () => {
         observer.unobserve(currentRef);
-      }
-    };
+        observer.disconnect();
+      };
+    }
   }, []);
 
   return { headingRef, isVisible };

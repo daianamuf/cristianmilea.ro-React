@@ -1,19 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Stats.module.css";
-import classNames from "classnames";
-import useHeadingIntersectionObserver from "../../useHeadingIntersectionObserver";
+import Heading from "../Heading/Heading";
 
 function Stats({ initialStats }) {
   const [stats, setStats] = useState(initialStats);
   const statsRef = useRef(null);
-
-  // Heading Observer
-  const { headingRef, isVisible } = useHeadingIntersectionObserver();
-  const headingClass = classNames(styles.heading, {
-    [styles.slideIn]: isVisible,
-    [styles.slideOut]: !isVisible,
-  });
 
   // Stats Observer
   useEffect(() => {
@@ -73,10 +65,10 @@ function Stats({ initialStats }) {
 
   return (
     <section className="stats-section section">
-      <h2 className={headingClass} ref={headingRef}>
+      <Heading>
         <span> Campion Mondial, European &#351;i Na&#539;ional</span>
         <span> &#238;n K1 la Categoria Lightweight</span>
-      </h2>
+      </Heading>
 
       <div className={styles["stats-section__statistics"]} ref={statsRef}>
         {stats.map((stat, index) => {

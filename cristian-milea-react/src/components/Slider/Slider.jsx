@@ -4,6 +4,7 @@ import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
 import useHeadingIntersectionObserver from "../../useHeadingIntersectionObserver";
 import useInfiniteCarousel from "../../useInfiniteCarousel";
 import { useEffect, useState } from "react";
+import Heading from "../Heading/Heading";
 
 function Slider() {
   const [slides, setSlides] = useState([]);
@@ -50,9 +51,8 @@ function Slider() {
 
   return (
     <section className={`${styles["slider-container"]} ${styles.section}}`}>
-      <h2 className={headingClass} ref={headingRef}>
-        Despre mine
-      </h2>
+      <Heading>Despre mine</Heading>
+
       <div className={styles.slider} ref={carouselRef}>
         {slides.map((slide, index) => (
           <div
