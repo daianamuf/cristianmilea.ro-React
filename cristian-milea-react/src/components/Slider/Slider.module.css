@@ -5,7 +5,7 @@
 .slider-container {
   position: relative;
   margin-bottom: 10rem;
-  padding-top: 6rem;
+  padding-top: 8rem;
 }
 @media (max-width: 53.7em) {
   .slider-container {
@@ -34,7 +34,6 @@
   justify-content: center;
   position: relative;
   margin-bottom: 7rem;
-  overflow: hidden;
 }
 @media (max-width: 53.7em) {
   .slider {
@@ -59,18 +58,16 @@
     width: 30rem;
   }
 }
-
-.mobile.slider {
+.slider.mobile {
   overflow: auto;
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.mobile.slider::-webkit-scrollbar {
+.slider.mobile::-webkit-scrollbar {
   display: none;
 }
-
-.mobile .slide {
+.slider.mobile .slide {
   scroll-snap-align: start;
 }
 
@@ -86,7 +83,7 @@
   justify-content: center;
   gap: 2rem;
   overflow: hidden;
-  display: none;
+  visibility: hidden;
 }
 @media (max-width: 53.7em) {
   .slide {
@@ -270,15 +267,10 @@
 
 .dots {
   position: absolute;
-  bottom: -10%;
+  bottom: -5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-}
-@media (max-width: 48em) {
-  .dots {
-    display: none;
-  }
 }
 .dots__dot {
   border: none;
@@ -300,55 +292,5 @@
 }
 
 .activeSlide {
-  display: flex;
-}
-
-.heading {
-  color: #fff;
-  font-size: 6rem;
-  font-family: "Archivo Black";
-  text-align: center;
-  margin-bottom: 6rem;
-  transition: all 1s;
-  display: flex;
-  flex-direction: column;
-}
-@media (max-width: 64em) {
-  .heading {
-    font-size: 4rem;
-  }
-}
-@media (max-width: 48em) {
-  .heading {
-    font-size: 3.2rem;
-    margin-bottom: 4rem;
-  }
-}
-@media (max-width: 53.7em) {
-  .heading {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-  }
-}
-@media (max-width: 34.9em) {
-  .heading {
-    font-size: 2.4rem;
-  }
-}
-@media (max-width: 26.6em) {
-  .heading {
-    margin-bottom: 2.6rem;
-  }
-}
-
-.slideIn {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 1s;
-}
-
-.slideOut {
-  transform: translateX(-20rem);
-  opacity: 0;
-  transition: all 1s;
+  visibility: visible;
 }/*# sourceMappingURL=Slider.module.css.map */

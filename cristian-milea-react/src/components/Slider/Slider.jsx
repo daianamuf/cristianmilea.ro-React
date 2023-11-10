@@ -1,10 +1,24 @@
 import styles from "./Slider.module.css";
 
-import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
-
 import useInfiniteCarousel from "../../useInfiniteCarousel";
 import { useEffect, useState } from "react";
-import Heading from "../Heading/Heading";
+import classNames from "classnames";
+
+import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
+import Heading from "../heading/Heading";
+
+const isMobile = (userAgent) => {
+  return !!(
+    userAgent.toLowerCase().match(/android/i) ||
+    userAgent.toLowerCase().match(/blackberry|bb/i) ||
+    userAgent.toLowerCase().match(/iphone|ipad|ipod/i) ||
+    userAgent
+      .toLowerCase()
+      .match(/windows phone|windows mobile|iemobile|wpdesktop/i)
+  );
+};
+
+const onMobile = isMobile(window.navigator.userAgent);
 
 function Slider() {
   const [slides, setSlides] = useState([]);
@@ -15,7 +29,6 @@ function Slider() {
         const res = await fetch("/slides-data.json");
         const data = await res.json();
         setSlides(data);
-        // setSlides([data[0], ...data, data[data.length - 1]]);
       } catch (err) {
         console.log("Error getting slides: ", err);
       }
@@ -26,7 +39,6 @@ function Slider() {
   const {
     carouselRef,
     transitionEnabled,
-    // translateX,
     adjustedIndex,
     debouncedNext,
     debouncePrev,
@@ -34,42 +46,41 @@ function Slider() {
     goToSlide,
   } = useInfiniteCarousel(slides.length);
 
-  // const containerStyles = {
-  //   transform: `translateX(${0}px)`,
-  //   transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
-  // };
-
   const slideStyles = {
     transform: `translateX(${slideMovement}px)`,
     transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
   };
 
+  const sliderClassname = classNames(styles.slider, {
+    [styles.mobile]: onMobile,
+  });
+
+  console.log(onMobile);
+
   return (
     <section className={`${styles["slider-container"]} ${styles.section}}`}>
       <Heading>Despre mine</Heading>
 
-      <div className={styles.slider} ref={carouselRef}>
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={
-              index === adjustedIndex ? styles.activeSlide : styles.slide
-            }
-            style={slideStyles}
-          >
-            <p className={styles["slide-text"]}>{slide.text}</p>
-
-            {slide.list ? (
-              <ul className={styles["slide-text-list"]}>
-                {slide.list.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            ) : (
-              <img className={styles["slide-img"]} src={slide.image} alt="" />
-            )}
-          </div>
-        ))}
+      <div className={sliderClassname} ref={carouselRef}>
+        {slides.map((slide, index) => {
+          const slideClassname = classNames(styles.slide, {
+            [styles.activeSlide]: index === adjustedIndex,
+          });
+          return (
+            <div key={slide.id} className={slideClassname} style={slideStyles}>
+              <p className={styles["slide-text"]}>{slide.text}</p>
+              {slide.list ? (
+                <ul className={styles["slide-text-list"]}>
+                  {slide.list.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <img className={styles["slide-img"]} src={slide.image} alt="" />
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <button

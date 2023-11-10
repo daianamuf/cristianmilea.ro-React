@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.gallery {
+  position: relative;
+  padding-top: 10rem;
+  margin-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 26.6em) {
+  .gallery {
+    margin-bottom: 5rem;
+  }
+}
+.gallery::after {
+  content: "";
+  background-color: #151b26;
+  box-shadow: 2px -25px 25px #151b26;
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  bottom: -1rem;
+  z-index: 2;
+  transition: all 0.3s;
+}
+.gallery:hover:has(.gallery__btn:hover)::after {
+  height: 30%;
+}
+.gallery__btn {
+  position: absolute;
+  z-index: 3;
+  top: 59%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.gallery__btn p, .gallery__btn--icon {
+  font-family: "Archivo";
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ff002b;
+  transition: all 0.3s;
+}
+.gallery__btn:hover {
+  background-color: #151b26;
+  padding: 1rem;
+  box-shadow: 5px 5px 15px 0px #151b26;
+  border-radius: 5px;
+}
+.gallery__btn--icon {
+  color: #ff002b;
+  font-size: 2rem;
+}
+.gallery__btn--icon:hover {
+  font-size: 6rem;
+}
+.gallery__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(17.5rem, 1fr));
+  gap: 2rem;
+}
+@media (max-width: 27em) {
+  .gallery__wrapper {
+    gap: 1rem;
+  }
+}
+.gallery__img {
+  width: 50rem;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s;
+}
+@media (max-width: 64em) {
+  .gallery__img {
+    width: 35rem;
+  }
+}
+@media (max-width: 48em) {
+  .gallery__img {
+    width: 25rem;
+  }
+}
+@media (max-width: 37em) {
+  .gallery__img {
+    width: 20rem;
+  }
+}
+@media (max-width: 27em) {
+  .gallery__img {
+    width: 17.5rem;
+  }
+}/*# sourceMappingURL=GallerySneak.module.css.map */

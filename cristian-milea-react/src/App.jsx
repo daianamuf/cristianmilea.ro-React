@@ -1,7 +1,8 @@
 import Nav from "./components/Nav";
-import Hero from "./components/Hero/Hero";
-import Stats from "./components/Stats/Stats";
-import Slider from "./components/Slider/Slider";
+import Hero from "./components/hero/Hero";
+import Stats from "./components/stats/Stats";
+import Slider from "./components/slider/Slider";
+import GallerySneak from "./components/gallerySneak/GallerySneak";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <Stats />
       <Slider />
+      <GallerySneak />
     </>
   );
 }

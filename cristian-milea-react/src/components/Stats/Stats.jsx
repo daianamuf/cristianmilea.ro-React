@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Stats.module.css";
-import Heading from "../Heading/Heading";
+import Heading from "../heading/Heading";
 
 const statsData = [
   { name: "Meciuri", value: 97, displayValue: 0 },

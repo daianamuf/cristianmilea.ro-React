@@ -1,0 +1,96 @@
+@import "../../css/_variables";
+
+.gallery {
+  position: relative;
+  padding-top: 10rem;
+  margin-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 26.6em) {
+    margin-bottom: 5rem;
+  }
+
+  &::after {
+    content: "";
+    background-color: $color-blue-dark;
+    box-shadow: 2px -25px 25px $color-blue-dark;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: -1rem;
+    z-index: 2;
+    transition: all 0.3s;
+  }
+
+  &:hover:has(.gallery__btn:hover)::after {
+    height: 30%;
+  }
+
+  &__btn {
+    position: absolute;
+    z-index: 3;
+    top: 59%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    & p,
+    &--icon {
+      font-family: "Archivo";
+      font-size: $font-medium;
+      font-weight: 600;
+      color: $color-accent_red;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      background-color: $color-blue-dark;
+      padding: 1rem;
+      box-shadow: 5px 5px 15px 0px $color-blue-dark;
+      border-radius: 5px;
+    }
+
+    &--icon {
+      color: $color-accent_red;
+      font-size: $font-medium;
+
+      &:hover {
+        font-size: $font-big;
+      }
+    }
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(17.5rem, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 27em) {
+      gap: 1rem;
+    }
+  }
+
+  &__img {
+    width: 50rem;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.2s;
+    @media (max-width: 64em) {
+      width: 35rem;
+    }
+    @media (max-width: 48em) {
+      width: 25rem;
+    }
+    @media (max-width: 37em) {
+      width: 20rem;
+    }
+    @media (max-width: 27em) {
+      width: 17.5rem;
+    }
+  }
+}
