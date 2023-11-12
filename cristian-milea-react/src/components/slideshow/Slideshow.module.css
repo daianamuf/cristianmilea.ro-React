@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+  z-index: 12;
+  transition: all 0.5s;
+  font-size: 4.2rem;
+  fill: #fff;
+}
+.closeBtn:hover {
+  fill: #ff002b;
+  font-size: 4.4rem;
+}/*# sourceMappingURL=Slideshow.module.css.map */

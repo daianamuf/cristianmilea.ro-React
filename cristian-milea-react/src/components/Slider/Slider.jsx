@@ -55,8 +55,6 @@ function Slider() {
     [styles.mobile]: onMobile,
   });
 
-  console.log(onMobile);
-
   return (
     <section className={`${styles["slider-container"]} ${styles.section}}`}>
       <Heading>Despre mine</Heading>

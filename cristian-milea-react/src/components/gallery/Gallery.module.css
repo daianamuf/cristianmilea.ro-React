@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-auto-rows: 25rem;
+  grid-auto-flow: dense;
+}
+@media (max-width: 53.7em) {
+  .wrapper {
+    grid-auto-rows: 18rem;
+  }
+}
+@media (max-width: 48em) {
+  .wrapper {
+    grid-auto-rows: 10rem;
+  }
+}
+@media (max-width: 35em) {
+  .wrapper {
+    grid-auto-rows: 20rem;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s;
+}
+@media (max-width: 35em) {
+  .img {
+    -o-object-fit: s;
+       object-fit: s;
+  }
+}
+
+.h_stretch {
+  grid-row: span 2;
+}
+@media (max-width: 35em) {
+  .h_stretch {
+    grid-row: span 1;
+  }
+}
+
+.v_stretch {
+  grid-column: span 2;
+}
+@media (max-width: 35em) {
+  .v_stretch {
+    grid-column: span 1;
+  }
+}
+
+.big_stretch {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+@media (max-width: 35em) {
+  .big_stretch {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}/*# sourceMappingURL=Gallery.module.css.map */

@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 
 import styles from "./Hero.module.css";
-function Hero() {
+function Hero({ heroRef }) {
   return (
-    <section className={styles["hero-section"]}>
+    <section ref={heroRef} className={styles["hero-section"]}>
       <h1 className={styles["hero-section__heading"]}>
         <span>CRISTIAN MILEA </span>
         <span> "The Fastest"</span>

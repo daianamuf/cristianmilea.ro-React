@@ -93,20 +93,6 @@ const useInfiniteCarousel = (slidesLength) => {
   const adjustedIndex =
     ((currentIndex % slidesLength) + slidesLength) % slidesLength;
 
-  // // const translateX = -(adjustedIndex * (currentIndex - slidesLength));
-  // let translateX;
-  // if (direction === "next") {
-  //   // translateX = -(adjustedIndex * (currentIndex - slidesLength));
-  //   translateX = 5;
-  // } else if (direction === "prev") {
-  //   // translateX = adjustedIndex * (currentIndex - slidesLength);
-  //   translateX = -5;
-  // }
-  // console.log("translate", translateX);
-
-  // console.log("curr", currentIndex);
-  // console.log("adj", adjustedIndex);
-
   return {
     currentIndex,
     adjustedIndex,

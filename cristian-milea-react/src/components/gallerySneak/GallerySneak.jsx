@@ -1,6 +1,7 @@
 import Heading from "../heading/Heading";
 import { Eye } from "@phosphor-icons/react";
 import styles from "./GallerySneak.module.css";
+import { Link } from "react-router-dom";
 
 function GallerySneak() {
   return (
@@ -20,9 +21,9 @@ function GallerySneak() {
           alt=""
         />
       </div>
-      <button className={styles.gallery__btn}>
+      <Link to="/gallery" className={styles.gallery__btn}>
         <Eye className={styles["gallery__btn--icon"]} />
-      </button>
+      </Link>
     </section>
   );
 }
