@@ -2,12 +2,12 @@
   "images": [
     { "original": "/images/gallery_3.jpg", "stretch": "h_stretch" },
     { "original": "/images/gallery_1.jpg", "stretch": "h_stretch" },
-    { "original": "/images/gallery_2.jpg", "stretch": "v_stretch" },
+    { "original": "/images/gallery_2.jpg", "stretch": "big_stretch" },
     { "original": "/images/gallery_4.jpg", "stretch": "h_stretch" },
     { "original": "/images/gallery_5.jpg", "stretch": "v_stretch" },
     { "original": "/images/gallery_6.jpg", "stretch": "h_stretch" },
-    { "original": "/images/gallery_9.jpg", "stretch": "h_stretch" },
-    { "original": "/images/gallery_7.jpg", "stretch": "h_stretch" },
+    { "original": "/images/gallery_9.jpg", "stretch": "v_stretch" },
+    { "original": "/images/gallery_7.jpg", "stretch": "big_stretch" },
     { "original": "/images/gallery_8.jpg", "stretch": "h_stretch" }
   ]
 }

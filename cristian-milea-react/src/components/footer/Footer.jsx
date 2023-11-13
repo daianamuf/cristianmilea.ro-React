@@ -3,70 +3,85 @@ import {
   FacebookLogo,
   InstagramLogo,
 } from "@phosphor-icons/react";
+import classNames from "classnames";
+import { useEffect, useState } from "react";
+import styles from "./Footer.module.css";
 
 const sponsorPhotos = [
-  "/images/Sponsori/utm.webp",
-  "/images/Sponsori/worldclass.png",
-  "/images/Sponsori/knockoutro.webp",
+  { src: "/images/Sponsori/utm.webp", alt: "UTM", key: 1 },
+  { src: "/images/Sponsori/worldclass.png", alt: "Worldclass", key: 2 },
+  { src: "/images/Sponsori/knockoutro.webp", alt: "Knockout", key: 3 },
+  { src: "/images/Sponsori/superfit.png", alt: "Superfit", key: 4 },
+  { src: "/images/Sponsori/thaishindo.png", alt: "Thai Shin Do Gym", key: 5 },
+  {
+    src: "/images/Sponsori/mastertrainerraul.png",
+    alt: "Master Trainer Raul",
+    key: 6,
+  },
 ];
 
 function Footer() {
+  const [sponsors, setSponsors] = useState(sponsorPhotos);
+
+  useEffect(() => {
+    const sponsorsCopy = [...sponsorPhotos];
+    const setCurrentSponsor = function () {
+      sponsorsCopy.push(sponsorsCopy.shift());
+      const newSponsors = [...sponsorsCopy];
+      setSponsors(newSponsors);
+    };
+    const interval = setInterval(setCurrentSponsor, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <footer className="footer ">
-      <section className="sponsors">
-        <h3 className="sponsors__heading">Sponsori</h3>
-        <div className="sponsors__slider">
-          <div className="sponsors__slider--item sponsors__slider--item-1">
-            <img src="/images/Sponsori/utm.webp" alt="UTM" />
-          </div>
-          <div className="sponsors__slider--item sponsors__slider--item-2">
-            <img src="/images/Sponsori/worldclass.png" alt="Worldclass" />
-          </div>
-          <div className="sponsors__slider--item sponsors__slider--item-3">
-            <img src="/images/Sponsori/knockoutro.webp" alt="Knockout" />
-          </div>
-          <div className="sponsors__slider--item sponsors__slider--item-4">
-            <img src="/images/Sponsori/superfit.png" alt="Superfit" />
-          </div>
-          <div className="sponsors__slider--item sponsors__slider--item-5">
-            <img src="/images/Sponsori/thaishindo.png" alt="Thai Shin Do Gym" />
-          </div>
-          <div className="sponsors__slider--item sponsors__slider--item-6">
-            <img
-              src="/images/Sponsori/mastertrainerraul.png"
-              alt="Master Trainer Raul"
-            />
-          </div>
+    <footer className={styles.footer}>
+      <section className={styles.sponsors}>
+        <h3 className={styles.sponsors__heading}>Sponsori</h3>
+        <div className={styles.sponsors__slider}>
+          {sponsors.map((sponsor, index) => {
+            const sponsorClassname = classNames(
+              styles["sponsors__slider--item"],
+              styles[`sponsors__slider--item-${index + 1}`],
+              { hidden: index >= 5 }
+            );
+            return (
+              <div key={sponsor.key} className={sponsorClassname}>
+                <img src={sponsor.src} alt={sponsor.alt} />
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <div className="footer__social-media">
+      <div className={styles["footer__social-media"]}>
         <a
           href="https://www.youtube.com/@cristianmilea3557"
           target="_blank"
           rel="noreferrer"
-          className="footer__social-media--link youtube"
+          className={styles["footer__social-media--link"]}
         >
-          <YoutubeLogo className="ph ph-youtube-logo" />
+          <YoutubeLogo className={styles["media-logo"]} />
         </a>
         <a
           href="https://www.instagram.com/milea.cristian.88/"
           target="_blank"
           rel="noreferrer"
-          className="footer__social-media--link instagram"
+          className={styles["footer__social-media--link"]}
         >
-          <InstagramLogo className="ph ph-instagram-logo" />
+          <InstagramLogo className={styles["media-logo"]} />
         </a>
         <a
           href="https://www.facebook.com/milea.cristian.79"
           target="_blank"
           rel="noreferrer"
-          className="footer__social-media--link facebook"
+          className={styles["footer__social-media--link"]}
         >
-          <FacebookLogo className="ph ph-facebook-logo" />
+          <FacebookLogo className={styles["media-logo"]} />
         </a>
       </div>
-      <p className="footer__logo logo">The Fastest</p>
+      <p className={`${styles.footer__logo} ${styles.logo}`}>The Fastest</p>
     </footer>
   );
 }
