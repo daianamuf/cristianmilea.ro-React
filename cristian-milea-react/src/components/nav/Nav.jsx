@@ -12,9 +12,7 @@ function Nav({ isScrolling }) {
   return (
     <>
       <nav className={navClassname}>
-        <div className={`${styles["nav-logo"]} ${styles.logo}`}>
-          THE FASTEST
-        </div>
+        <div className={styles.logo}>THE FASTEST</div>
         <ul className={styles["nav-list"]}>
           <li className={styles["nav-list--item"]}>
             <NavLink to="/" className={styles["nav-list--item"]}>
@@ -32,7 +30,9 @@ function Nav({ isScrolling }) {
             </NavLink>
           </li>
           <li className={styles["nav-list--item"]}>
-            <button className={styles.btn}>Contact</button>
+            <NavLink to="/contact" className={styles["nav-list--item"]}>
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>

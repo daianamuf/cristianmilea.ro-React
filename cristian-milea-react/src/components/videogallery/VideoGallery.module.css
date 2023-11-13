@@ -1,4 +1,39 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
 .wrapper {
+  width: 80%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(20rem, 1fr));
+  row-gap: 3rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  margin-bottom: 5rem;
+}
+@media (max-width: 48em) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.video__title {
+  font-family: "Archivo";
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+@media (max-width: 27em) {
+  .video__title {
+    font-size: 1.6rem;
+  }
 }/*# sourceMappingURL=VideoGallery.module.css.map */

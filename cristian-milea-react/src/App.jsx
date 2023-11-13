@@ -9,6 +9,7 @@ import Homepage from "./components/Homepage";
 import Gallery from "./components/gallery/Gallery";
 import Slideshow from "./components/slideshow/Slideshow";
 import VideoGallery from "./components/videogallery/VideoGallery";
+import Contact from "./components/contact/Contact";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="gallery" element={<Gallery />} />
         <Route path="slideshow" element={<Slideshow />} />
         <Route path="videos" element={<VideoGallery />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="*" element={<Homepage />} />
       </Routes>
     </BrowserRouter>
