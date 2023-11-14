@@ -6,18 +6,19 @@ import classNames from "classnames";
 import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
 import Heading from "../heading/Heading";
 
-const isMobile = (userAgent) => {
-  return !!(
-    userAgent.toLowerCase().match(/android/i) ||
-    userAgent.toLowerCase().match(/blackberry|bb/i) ||
-    userAgent.toLowerCase().match(/iphone|ipad|ipod/i) ||
-    userAgent
-      .toLowerCase()
-      .match(/windows phone|windows mobile|iemobile|wpdesktop/i)
-  );
-};
+// const isMobile = (userAgent) => {
+//   return !!(
+//     userAgent.toLowerCase().match(/android/i) ||
+//     userAgent.toLowerCase().match(/blackberry|bb/i) ||
+//     userAgent.toLowerCase().match(/iphone|ipad|ipod/i) ||
+//     userAgent
+//       .toLowerCase()
+//       .match(/windows phone|windows mobile|iemobile|wpdesktop/i)
+//   );
+// };
 
-const onMobile = isMobile(window.navigator.userAgent);
+// const onMobile = isMobile(window.navigator.userAgent);
+const smallMedia = window.matchMedia("(max-width: 768px)");
 
 function Slider() {
   const [slides, setSlides] = useState([]);
@@ -49,7 +50,7 @@ function Slider() {
   }, []);
 
   const sliderClassname = classNames(styles.slider, {
-    [styles.mobile]: onMobile,
+    [styles.mobile]: smallMedia,
   });
 
   return (

@@ -1,7 +1,8 @@
-import Heading from "../heading/Heading";
+import { Link } from "react-router-dom";
 import { Eye } from "@phosphor-icons/react";
 import styles from "./GallerySneak.module.css";
-import { Link } from "react-router-dom";
+
+import Heading from "../heading/Heading";
 
 function GallerySneak() {
   return (

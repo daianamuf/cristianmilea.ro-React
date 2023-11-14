@@ -1,1 +1,109 @@
-/*# sourceMappingURL=Contact.module.css.map */
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10rem;
+  padding-top: 8rem;
+}
+@media (max-width: 48em) {
+  .contact {
+    padding-bottom: 7rem;
+  }
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50rem;
+  background: linear-gradient(0deg, rgb(21, 27, 38) 0%, rgba(192, 0, 32, 0.671) 30%, rgb(128, 0, 22) 100%);
+  border-radius: 10px;
+  padding: 4rem;
+}
+@media (max-width: 48em) {
+  .contact__form {
+    width: 40rem;
+  }
+}
+@media (max-width: 34em) {
+  .contact__form {
+    width: 35rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .contact__form {
+    width: 32rem;
+  }
+}
+.contact__form label {
+  font-size: 1.6rem;
+  color: #e6e6e6;
+}
+.contact__form--input {
+  width: 40rem;
+  height: 3.8rem;
+  border-radius: 5px;
+  margin-bottom: 2.4rem;
+  background-color: #e6e6e6;
+  color: #151b26;
+  font-weight: 700;
+  padding: 1rem;
+  font-size: medium;
+}
+@media (max-width: 48em) {
+  .contact__form--input {
+    width: 30rem;
+    height: 3rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 34em) {
+  .contact__form--input {
+    width: 26rem;
+  }
+}
+@media (max-width: 26.6em) {
+  .contact__form--input {
+    width: 24rem;
+  }
+}
+.contact__form textarea {
+  height: 7.6rem;
+}
+@media (max-width: 48em) {
+  .contact__form textarea {
+    height: 6.2rem;
+  }
+}
+.contact__form button {
+  width: 14rem;
+  height: 5rem;
+  border: none;
+  border-radius: 10px;
+  color: #e6e6e6;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  align-self: center;
+  background: linear-gradient(180deg, #344360 0%, #151b26 100%);
+  transition: all 0.3s;
+}
+@media (max-width: 48em) {
+  .contact__form button {
+    width: 10rem;
+    font-size: 1.5rem;
+  }
+}
+.contact__form button:hover {
+  box-shadow: 0px 0px 10px 2px #151b26;
+}
+.contact__form button:active {
+  box-shadow: 0px 0px 10px 2px #344360;
+  transform: translateY(2px);
+}/*# sourceMappingURL=Contact.module.css.map */

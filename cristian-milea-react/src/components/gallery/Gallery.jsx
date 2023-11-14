@@ -1,9 +1,8 @@
-// import { render } from "react-dom";
+import { Link } from "react-router-dom";
+import styles from "./Gallery.module.css";
 
 import Heading from "../heading/Heading";
 import Nav from "../nav/Nav";
-import { Link } from "react-router-dom";
-import styles from "./Gallery.module.css";
 import useImageGalleryData from "../../useImageGalleryData";
 import Footer from "../footer/Footer";
 

@@ -2,14 +2,13 @@
 
 .gallery {
   position: relative;
-  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 26.6em) {
-    margin-bottom: 5rem;
+  @media (max-width: 35em) {
+    padding-top: 0.5rem;
   }
 
   &::after {

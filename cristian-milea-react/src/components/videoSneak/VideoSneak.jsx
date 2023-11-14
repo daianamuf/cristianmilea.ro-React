@@ -1,7 +1,8 @@
-import Heading from "../heading/Heading";
-import { Eye } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import { Eye } from "@phosphor-icons/react";
 import styles from "./VideoSneak.module.css";
+
+import Heading from "../heading/Heading";
 
 function VideoSneak() {
   return (
