@@ -5,6 +5,7 @@ import Slider from "../components/slider/Slider";
 import GallerySneak from "../components/gallerySneak/GallerySneak";
 import { useRef, useState, useEffect } from "react";
 import Footer from "./footer/Footer";
+import VideoSneak from "./videoSneak/VideoSneak";
 
 function Homepage() {
   const heroRef = useRef(null);
@@ -40,6 +41,7 @@ function Homepage() {
       <Stats />
       <Slider />
       <GallerySneak />
+      <VideoSneak />
       <Footer />
     </>
   );

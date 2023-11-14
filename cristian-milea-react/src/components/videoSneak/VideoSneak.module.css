@@ -61,7 +61,7 @@
   font-size: 6rem;
 }
 .gallery__wrapper {
-  height: 35rem;
+  height: 38rem;
   overflow-y: hidden;
   display: grid;
   grid-template-columns: repeat(2, minmax(17.5rem, 1fr));
@@ -98,4 +98,4 @@
   .gallery__img {
     width: 17.5rem;
   }
-}/*# sourceMappingURL=GallerySneak.module.css.map */
+}/*# sourceMappingURL=VideoSneak.module.css.map */
