@@ -1,6 +1,5 @@
 import styles from "./Slider.module.css";
 
-import useInfiniteCarousel from "../../useInfiniteCarousel";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 
@@ -22,6 +21,19 @@ const onMobile = isMobile(window.navigator.userAgent);
 
 function Slider() {
   const [slides, setSlides] = useState([]);
+  const [currSlide, setCurrSlide] = useState(0);
+  const maxSlide = slides.length;
+
+  const goToSlide = (index) => {
+    setCurrSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrSlide(currSlide === maxSlide - 1 ? 0 : currSlide + 1);
+  };
+  const prevSlide = () => {
+    setCurrSlide(currSlide === 0 ? maxSlide - 1 : currSlide - 1);
+  };
 
   useEffect(() => {
     async function getSlidesData() {
@@ -36,36 +48,26 @@ function Slider() {
     getSlidesData();
   }, []);
 
-  const {
-    carouselRef,
-    transitionEnabled,
-    adjustedIndex,
-    debouncedNext,
-    debouncePrev,
-    slideMovement,
-    goToSlide,
-  } = useInfiniteCarousel(slides.length);
-
-  const slideStyles = {
-    transform: `translateX(${slideMovement}px)`,
-    transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
-  };
-
   const sliderClassname = classNames(styles.slider, {
     [styles.mobile]: onMobile,
   });
 
   return (
-    <section className={`${styles["slider-container"]} ${styles.section}}`}>
+    <section className={styles["slider-container"]}>
       <Heading>Despre mine</Heading>
 
-      <div className={sliderClassname} ref={carouselRef}>
+      <div className={sliderClassname}>
         {slides.map((slide, index) => {
-          const slideClassname = classNames(styles.slide, {
-            [styles.activeSlide]: index === adjustedIndex,
-          });
+          const slideClassname = classNames(
+            styles.slide,
+            styles[`slide-${index + 1}`]
+          );
           return (
-            <div key={slide.id} className={slideClassname} style={slideStyles}>
+            <div
+              key={slide.id}
+              className={slideClassname}
+              style={{ transform: `translateX(${100 * (index - currSlide)}%)` }}
+            >
               <p className={styles["slide-text"]}>{slide.text}</p>
               {slide.list ? (
                 <ul className={styles["slide-text-list"]}>
@@ -83,7 +85,7 @@ function Slider() {
 
       <button
         className={`${styles.slider__btn} ${styles["slider__btn--left"]}`}
-        onClick={debouncePrev}
+        onClick={prevSlide}
       >
         <ArrowCircleLeft
           className={`${styles.icon} ${styles["icon-arrow-circle-left"]}`}
@@ -91,7 +93,7 @@ function Slider() {
       </button>
       <button
         className={`${styles.slider__btn} ${styles["slider__btn--right"]}`}
-        onClick={debouncedNext}
+        onClick={nextSlide}
       >
         <ArrowCircleRight
           className={`${styles.icon} ${styles["icon-arrow-circle-right"]}`}
@@ -102,7 +104,7 @@ function Slider() {
           <span
             key={index}
             className={
-              index === adjustedIndex
+              index === currSlide
                 ? `${styles["dots__dot"]} ${styles["dots__dot--active"]}`
                 : styles["dots__dot"]
             }

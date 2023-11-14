@@ -34,6 +34,7 @@
   justify-content: center;
   position: relative;
   margin-bottom: 7rem;
+  overflow: hidden;
 }
 @media (max-width: 53.7em) {
   .slider {
@@ -75,15 +76,12 @@
   position: absolute;
   top: 0;
   height: 50rem;
-  flex: 0 0 100%;
   max-width: 100%;
   transition: all 0.5s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  overflow: hidden;
-  visibility: hidden;
 }
 @media (max-width: 53.7em) {
   .slide {
