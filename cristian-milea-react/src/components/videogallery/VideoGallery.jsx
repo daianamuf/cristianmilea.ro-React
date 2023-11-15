@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { YoutubeLogo } from "@phosphor-icons/react";
+
 import styles from "./VideoGallery.module.css";
+
 import ReactPlayer from "react-player";
+
 import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 import Heading from "../heading/Heading";
-import { YoutubeLogo } from "@phosphor-icons/react";
 
 function VideoGallery() {
   const [videoGallery, setVideoGallery] = useState([]);
@@ -22,8 +25,6 @@ function VideoGallery() {
     getVideos();
   }, []);
 
-  console.log(videoGallery);
-
   return (
     <>
       <Nav />
@@ -31,7 +32,9 @@ function VideoGallery() {
       <div className={styles.wrapper}>
         {videoGallery.map((video, index) => (
           <div key={index} className={styles.video}>
-            <ReactPlayer url={video.url} light={true} width={"100%"} />
+            <div className={styles.video__wrapper}>
+              <ReactPlayer url={video.url} light={true} width={"100%"} />
+            </div>
             <p className={styles.video__title}>
               <span>
                 <YoutubeLogo style={{ fontSize: "28px" }} />

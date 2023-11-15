@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Stats.module.css";
+
 import Heading from "../heading/Heading";
 
 const statsData = [
@@ -14,59 +15,6 @@ function Stats() {
   const statsRef = useRef(null);
   const intervalRef = useRef([]);
   const interval = 5000;
-
-  // Stats Observer
-  // useEffect(() => {
-  //   const intervals = [];
-  //   const interval = 5000;
-
-  //   const startCounters = () => {
-  //     stats.forEach((stat, index) => {
-  //       let startValue = 0;
-  //       let endValue = stat.value;
-  //       let duration = Math.floor(interval / endValue);
-
-  //       const counter = setInterval(() => {
-  //         startValue++;
-  //         // stat.displayValue = startValue;
-  //         setStats((prevStats) => {
-  //           const newStats = [...prevStats];
-  //           newStats[index].displayValue = startValue;
-  //           return newStats;
-  //         });
-  //         if (startValue === endValue) {
-  //           clearInterval(counter);
-  //         }
-  //       }, duration);
-  //       intervals.push(counter);
-  //     });
-  //   };
-
-  //   const observerOptions = {
-  //     root: null,
-  //     threshold: 1.0,
-  //     rootMargin: "0px",
-  //   };
-  //   const statsObserver = (entries) => {
-  //     const [entry] = entries;
-  //     if (entry.isIntersecting) {
-  //       startCounters();
-  //       observer.observe(statsRef.current);
-  //     }
-  //   };
-
-  //   const observer = new IntersectionObserver(statsObserver, observerOptions);
-
-  //   if (statsRef.current) {
-  //     observer.observe(statsRef.current);
-  //   }
-
-  //   return () => {
-  //     observer.disconnect();
-  //     intervals.forEach(clearInterval);
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // });
 
   useEffect(() => {
     const currentIntervalRef = intervalRef.current;

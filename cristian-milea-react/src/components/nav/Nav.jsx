@@ -1,12 +1,28 @@
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styles from "./Nav.module.css";
 import classNames from "classnames";
 
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable-next-line react/prop-types */
-function Nav({ isScrolling }) {
+function Nav() {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollTreshold = totalHeight * 0.05;
+
+      setIsScrolling(scrollPosition > scrollTreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navClassname = classNames(styles.nav, {
-    [styles.sticky]: !isScrolling,
+    [styles.sticky]: isScrolling,
   });
 
   return (

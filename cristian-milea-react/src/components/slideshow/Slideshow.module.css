@@ -17,6 +17,11 @@
   font-size: 4.2rem;
   fill: #fff;
 }
+@media (max-width: 42em) {
+  .closeBtn {
+    right: 3%;
+  }
+}
 .closeBtn:hover {
   fill: #ff002b;
   font-size: 4.4rem;

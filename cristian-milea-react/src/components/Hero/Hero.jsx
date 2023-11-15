@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import styles from "./Hero.module.css";
+
 function Hero({ heroRef }) {
   return (
     <section ref={heroRef} className={styles["hero-section"]}>
