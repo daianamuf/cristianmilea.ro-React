@@ -212,7 +212,7 @@
   cursor: pointer;
   background: transparent;
 }
-@media (max-width: 48em) {
+@media (max-width: 56.3em) {
   .slider__btn {
     display: none;
   }
@@ -280,11 +280,9 @@
   background-color: #ff002b;
   opacity: 1;
 }
-@media (max-width: 48em) {
-  .dots__dot--active {
-    background-color: #b9b9b9;
-    opacity: 0.7;
-  }
+.dots__dot--activeMobile {
+  background-color: #ff002b;
+  opacity: 1;
 }
 
 .activeSlide {

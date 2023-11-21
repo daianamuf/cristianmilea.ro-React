@@ -197,7 +197,7 @@
   cursor: pointer;
   background: transparent;
 
-  @media (max-width: 48em) {
+  @media (max-width: 56.3em) {
     display: none;
   }
 
@@ -265,11 +265,11 @@
     &--active {
       background-color: $color-accent_red;
       opacity: 1;
+    }
 
-      @media (max-width: 48em) {
-        background-color: #b9b9b9;
-        opacity: 0.7;
-      }
+    &--activeMobile {
+      background-color: $color-accent_red;
+      opacity: 1;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowCircleLeft, ArrowCircleRight } from "@phosphor-icons/react";
 
 import styles from "./Slider.module.css";
@@ -6,12 +6,14 @@ import classNames from "classnames";
 
 import Heading from "../heading/Heading";
 
-const smallMedia = window.matchMedia("(max-width: 768px)");
+const touchMedia = window.matchMedia("(max-width: 900px)");
 
 function Slider() {
   const [slides, setSlides] = useState([]);
   const [currSlide, setCurrSlide] = useState(0);
+  const [currIndex, setCurrIndex] = useState(0);
   const maxSlide = slides.length;
+  const sliderRef = useRef(null);
 
   const goToSlide = (index) => {
     setCurrSlide(index);
@@ -38,16 +40,45 @@ function Slider() {
   }, []);
 
   const sliderClassname = classNames(styles.slider, {
-    [styles.mobile]: smallMedia,
+    [styles.mobile]: touchMedia.matches,
   });
 
-  console.log(currSlide);
+  useEffect(() => {
+    const sliderElement = sliderRef.current;
+    let newSlideIndex;
+
+    const calculateNewIndex = () => {
+      if (sliderElement) {
+        const scrollLeft = sliderElement.scrollLeft;
+        const slideWidth = sliderElement.offsetWidth;
+        newSlideIndex = Math.round(scrollLeft / slideWidth);
+      }
+    };
+
+    const handleScroll = () => {
+      calculateNewIndex();
+      setCurrIndex(newSlideIndex);
+      return;
+    };
+
+    if (touchMedia.matches) {
+      if (sliderElement) {
+        sliderElement.addEventListener("scroll", handleScroll);
+      }
+
+      return () => {
+        if (sliderElement) {
+          sliderElement.removeEventListener("scroll", handleScroll);
+        }
+      };
+    }
+  }, []);
 
   return (
     <section className={styles["slider-container"]}>
       <Heading>Despre mine</Heading>
 
-      <div className={sliderClassname}>
+      <div className={sliderClassname} ref={sliderRef}>
         {slides.map((slide, index) => {
           const slideClassname = classNames(
             styles.slide,
@@ -91,17 +122,26 @@ function Slider() {
         ></ArrowCircleRight>
       </button>
       <div className={styles.dots}>
-        {slides.map((_, index) => (
-          <span
-            key={index}
-            className={
-              index === currSlide
-                ? `${styles["dots__dot"]} ${styles["dots__dot--active"]}`
-                : styles["dots__dot"]
+        {slides.map((_, index) => {
+          const dotClassname = classNames(
+            styles["dots__dot"],
+            {
+              [styles["dots__dot--active"]]:
+                index === currSlide && !touchMedia.matches,
+            },
+            {
+              [styles["dots__dot--active"]]:
+                index === currIndex && touchMedia.matches,
             }
-            onClick={() => goToSlide(index)}
-          />
-        ))}
+          );
+          return (
+            <span
+              key={index}
+              className={dotClassname}
+              onClick={() => goToSlide(index)}
+            />
+          );
+        })}
         ;
       </div>
     </section>
