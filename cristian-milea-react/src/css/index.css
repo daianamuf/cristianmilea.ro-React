@@ -37,4 +37,9 @@ body {
 
 .hidden {
   display: none;
+}
+
+.image img {
+  margin: 0 auto;
+  aspect-ratio: 2/3;
 }/*# sourceMappingURL=index.css.map */

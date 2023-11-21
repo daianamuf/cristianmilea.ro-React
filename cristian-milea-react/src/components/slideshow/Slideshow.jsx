@@ -18,6 +18,7 @@ function Slideshow() {
       <ImageGallery
         items={imageGallery}
         startIndex={startIndex}
+        originalClass={"image"}
         showPlayButton={false}
       />
       <Link to="/gallery" className={styles.closeBtn}>

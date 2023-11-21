@@ -41,6 +41,11 @@ body {
   display: none;
 }
 
+.image img {
+  margin: 0 auto;
+  aspect-ratio: 2/3;
+}
+
 // .btn-up {
 //   border: none;
 //   background: transparent;
