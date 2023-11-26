@@ -15,7 +15,7 @@ function VideoGallery() {
   useEffect(() => {
     const getVideos = async () => {
       try {
-        const res = await fetch("/video-data.json");
+        const res = await fetch("video-data.json");
         const data = await res.json();
         setVideoGallery(data.videos);
       } catch (err) {

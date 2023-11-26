@@ -29,7 +29,7 @@ function Slider() {
   useEffect(() => {
     async function getSlidesData() {
       try {
-        const res = await fetch("/slides-data.json");
+        const res = await fetch("slides-data.json");
         const data = await res.json();
         setSlides(data);
       } catch (err) {

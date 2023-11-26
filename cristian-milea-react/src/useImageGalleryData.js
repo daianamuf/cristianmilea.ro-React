@@ -5,7 +5,7 @@ function useImageGalleryData() {
   useEffect(() => {
     const getImages = async () => {
       try {
-        const res = await fetch("/gallery-data.json");
+        const res = await fetch("gallery-data.json");
         const data = await res.json();
         setImageGallery(data.images);
       } catch (err) {
