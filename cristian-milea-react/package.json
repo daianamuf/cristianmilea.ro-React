@@ -1,17 +1,21 @@
 {
   "name": "cristian-milea-react",
+  "homepage": "https://github.com/daianamuf/cristianmilea.ro-React/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.14",
     "classnames": "^2.3.2",
+    "gh-pages": "^6.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
