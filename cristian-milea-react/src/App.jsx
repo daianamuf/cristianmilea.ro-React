@@ -13,7 +13,7 @@ import Contact from "./components/contact/Contact";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/cristianmilea.ro-React">
       <Routes>
         <Route index path="/" element={<Homepage />} />
         <Route path="gallery" element={<Gallery />} />
