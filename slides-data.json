@@ -2,12 +2,12 @@
   {
     "id": 1,
     "text": "Născut și crescut în cartierul Ferentari din București am început cu prima mea pasiune, muzica, mai exact am cântat la cor în școala generală și am luat lecții de acordeon. La vârsta de 11 ani am fost înscris la clubul sportiv de kickboxing Tai Shin Do Gym Academy și de atunci m-am îndrăgostit de acest sport.",
-    "image": "/images/slider/slide1.jpeg"
+    "image": "images/slider/slide1.jpeg"
   },
   {
     "id": 2,
     "text": "Până să trec la profesioniști, am dominat toate categoriile și stilurile de luptă, acumulând peste 90 de meciuri la amatori și devenind multiplu Campion Național la: Kickboxing K1, Muay Thai, Full Contact, Light Contact, Semi Contact, LowKick, Budo Kai si Karate Kyokushin.",
-    "image": "/images/slider/slide2.jpg"
+    "image": "images/slider/slide2.jpg"
   },
   {
     "id": 3,
@@ -24,16 +24,16 @@
   {
     "id": 4,
     "text": "Cariera de luptător profesionist mi-am construit-o alături de maestrul meu, Florin Mina, împreună bucurându-ne de toți acești ani de sport dar și de viață. Am fost și suntem întotdeauna o echipă puternică și unită în care ducem cu mândrie drapelul României la cel mai înalt nivel.",
-    "image": "/images/slider/slide4.jpg"
+    "image": "images/slider/slide4.jpg"
   },
   {
     "id": 5,
     "text": "Datorită pasiunii pentru sport am absolvit Facultatea de Educație Fizică și Sport, urmând mai apoi și un curs de Instructor de Fitness în cadrul școlii de formare a antrenorilor personali, Move ON România. Însetat de cunoaștere, am studiat și Psihologia în cadrul Universității Titu Maiorescu.",
-    "image": "/images/slider/slide5.jpg"
+    "image": "images/slider/slide5.jpg"
   },
   {
     "id": 6,
     "text": "Astfel am devenit nu doar un luptător desăvârșit, ci și un antrenor de excepție, împărtășind din experiența mea de peste 20 de ani de sport de performanță, cu cei care vor să descopere arta KickBoxingului.",
-    "image": "/images/slider/slide6.jpeg"
+    "image": "images/slider/slide6.jpeg"
   }
 ]
