@@ -23,6 +23,7 @@ import AppLayout from "./AppLayout";
 //   return path.split("/")[1]; // Adjust this based on your URL structure
 // };
 const baseUrl = import.meta.env.VITE_BASE_URL;
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
