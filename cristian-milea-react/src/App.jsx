@@ -11,7 +11,6 @@ import Slideshow from "./components/slideshow/Slideshow";
 import VideoGallery from "./components/videogallery/VideoGallery";
 import Contact from "./components/contact/Contact";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AppLayout from "./AppLayout";
 
 const getBasename = () => {
   // Example logic to dynamically determine basename
