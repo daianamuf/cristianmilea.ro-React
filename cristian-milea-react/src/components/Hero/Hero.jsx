@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 
 import styles from "./Hero.module.css";
 
@@ -12,7 +12,7 @@ function Hero({ heroRef }) {
       </h1>
       <div className={styles["bg-video"]}>
         <video className={styles["bg-video__content"]} autoPlay muted loop>
-          <source src="src/images/Hero-filtered.mp4" type="video/mp4" />
+          <source src="/images/Hero-filtered.mp4" type="video/mp4" />
         </video>
       </div>
     </section>
