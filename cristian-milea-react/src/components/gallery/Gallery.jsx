@@ -3,11 +3,14 @@ import styles from "./Gallery.module.css";
 
 import Heading from "../heading/Heading";
 import useImageGalleryData from "../../useImageGalleryData";
+import Nav from "../nav/Nav";
+import Footer from "../footer/Footer";
 
 function Gallery() {
   const { imageGallery } = useImageGalleryData();
   return (
     <>
+      <Nav />
       <Heading style={{ marginTop: "75px" }}>Galerie</Heading>
       <div className={styles.wrapper}>
         {imageGallery.map((image, index) => (
@@ -24,6 +27,7 @@ function Gallery() {
           </Link>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

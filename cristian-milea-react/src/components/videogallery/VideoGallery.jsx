@@ -6,6 +6,8 @@ import styles from "./VideoGallery.module.css";
 import ReactPlayer from "react-player";
 
 import Heading from "../heading/Heading";
+import Nav from "../nav/Nav";
+import Footer from "../footer/Footer";
 
 function VideoGallery() {
   const [videoGallery, setVideoGallery] = useState([]);
@@ -25,6 +27,7 @@ function VideoGallery() {
 
   return (
     <>
+      <Nav />
       <Heading style={{ marginTop: "75px" }}>Meciuri</Heading>
       <div className={styles.wrapper}>
         {videoGallery.map((video, index) => (
@@ -41,6 +44,7 @@ function VideoGallery() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
