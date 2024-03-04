@@ -22,19 +22,20 @@ import AppLayout from "./AppLayout";
 //   // For example, if your app could be hosted at /app1 or /app2, you might extract the first segment
 //   return path.split("/")[1]; // Adjust this based on your URL structure
 // };
-
+const baseUrl = import.meta.env.VITE_BASE_URL;
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    path: "/",
     children: [
-      { path: "/", element: <Homepage /> },
-      { path: "/gallery", element: <Gallery /> },
+      { index: true, element: <Homepage /> },
+      { path: "gallery", element: <Gallery /> },
       {
-        path: "/slideshow",
+        path: "slideshow",
         element: <Slideshow />,
       },
-      { path: "/videos", element: <VideoGallery /> },
-      { path: "/contact", element: <Contact /> },
+      { path: "videos", element: <VideoGallery /> },
+      { path: "contact", element: <Contact /> },
     ],
   },
 ]);
