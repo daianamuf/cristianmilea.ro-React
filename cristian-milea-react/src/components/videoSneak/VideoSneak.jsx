@@ -11,14 +11,14 @@ function VideoSneak() {
 
       <div className={styles.gallery__wrapper}>
         <img
-          src="/images/youtube_gorbicz.jpg"
+          src="/assets/images/youtube_gorbicz.jpg"
           alt=""
           className={`${styles.gallery__img} ${styles["h_stretch"]}`}
         />
 
         <img
           className={`${styles.gallery__img} ${styles["h_stretch"]}`}
-          src="/images/youtube_paraschiv_superkombat.jpg"
+          src="/assets/images/youtube_paraschiv_superkombat.jpg"
           alt=""
         />
       </div>

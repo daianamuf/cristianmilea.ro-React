@@ -8,13 +8,17 @@ import { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 
 const sponsorPhotos = [
-  { src: "images/Sponsori/utm.webp", alt: "UTM", key: 1 },
-  { src: "images/Sponsori/worldclass.png", alt: "Worldclass", key: 2 },
-  { src: "images/Sponsori/knockoutro.webp", alt: "Knockout", key: 3 },
-  { src: "images/Sponsori/superfit.png", alt: "Superfit", key: 4 },
-  { src: "images/Sponsori/thaishindo.png", alt: "Thai Shin Do Gym", key: 5 },
+  { src: "/assets/images/Sponsori/utm.webp", alt: "UTM", key: 1 },
+  { src: "/assets/images/Sponsori/worldclass.png", alt: "Worldclass", key: 2 },
+  { src: "/assets/images/Sponsori/knockoutro.webp", alt: "Knockout", key: 3 },
+  { src: "/assets/images/Sponsori/superfit.png", alt: "Superfit", key: 4 },
   {
-    src: "images/Sponsori/mastertrainerraul.png",
+    src: "/assets/images/Sponsori/thaishindo.png",
+    alt: "Thai Shin Do Gym",
+    key: 5,
+  },
+  {
+    src: "/assets/images/Sponsori/mastertrainerraul.png",
     alt: "Master Trainer Raul",
     key: 6,
   },
