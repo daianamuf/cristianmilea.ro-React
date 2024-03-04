@@ -1,13 +1,10 @@
-import Footer from "../footer/Footer";
 import Heading from "../heading/Heading";
-import Nav from "../nav/Nav";
 import styles from "./Contact.module.css";
 
 // eslint-disable-next-line react/prop-types
 function Contact() {
   return (
     <>
-      <Nav />
       <section className={styles.contact}>
         <Heading style={{ paddingTop: "10px" }}>Contact</Heading>
         <form
@@ -54,7 +51,6 @@ function Contact() {
           defer
         ></script>
       </section>
-      <Footer />
     </>
   );
 }
