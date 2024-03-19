@@ -14,6 +14,12 @@
   background-image: radial-gradient(at 12% 91%, #800016 0px, transparent 50%), radial-gradient(at 76% 19%, hsl(20, 71%, 75%) 0px, transparent 50%), radial-gradient(at 62% 34%, hsl(355, 87%, 75%) 0px, transparent 50%), radial-gradient(at 45% 31%, hsl(1, 82%, 61%) 0px, transparent 50%);
   box-shadow: 0px -6px 20px 7px #121011;
 }
+@media (min-width: 91em) {
+  .footer {
+    grid-template-columns: 2fr 1fr;
+    align-content: center;
+  }
+}
 @media (max-width: 54em) {
   .footer {
     height: 15rem;
@@ -52,6 +58,11 @@
   padding: 0 5.6rem;
   display: flex;
   gap: 2.3rem;
+}
+@media (min-width: 91em) {
+  .footer__social-media {
+    grid-column: 2/3;
+  }
 }
 @media (max-width: 54em) {
   .footer__social-media {
@@ -94,6 +105,7 @@
 
 .sponsors {
   height: 20rem;
+  width: 60rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -208,6 +220,11 @@
   color: #fff;
   text-shadow: 1px 1px 30px #800016;
   z-index: 2;
+}
+@media (min-width: 91em) {
+  .logo {
+    grid-column: 2/3;
+  }
 }
 @media (max-width: 64em) {
   .logo {
