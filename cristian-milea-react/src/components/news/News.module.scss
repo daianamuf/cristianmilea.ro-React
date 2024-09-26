@@ -1,0 +1,112 @@
+@import "../../css/_variables";
+
+.news {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10rem;
+
+  @media (max-width: 75em) {
+    width: 90%;
+  }
+
+  &__group {
+    display: flex;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+
+    @media (max-width: 75em) {
+      flex-direction: column;
+    }
+
+    &--image-container {
+      min-width: 50%;
+      overflow: hidden;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+    }
+
+    &--img {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      object-fit: cover;
+      object-position: 62%;
+      transition: all 3s ease;
+    }
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      color: $color-grey-dark;
+      padding: 3rem;
+
+      @media (max-width: 75em) {
+        padding: 2rem;
+      }
+    }
+
+    &--heading {
+      font-size: $font-medium;
+      text-transform: uppercase;
+      padding-top: 2rem;
+
+      background-image: linear-gradient(
+        180deg,
+        $color-accent_red 0%,
+        $color-accent-red 1%,
+        transparent 1%
+      );
+      background-size: 0px 6px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      transition: all 0.4s ease;
+    }
+
+    &--preview {
+      font-size: $font-small;
+      color: $color-grey-light;
+      font-weight: 300;
+    }
+
+    &--btn {
+      margin-top: 20rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      width: 25%;
+      align-self: flex-end;
+      color: $color-grey-light;
+
+      transition: all 0.4s ease;
+
+      @media (max-width: 75em) {
+        width: 14rem;
+        margin-top: 8rem;
+      }
+    }
+
+    &:hover {
+      .news__group {
+        &--img {
+          transform: scale(1.1);
+        }
+        &--btn {
+          color: $color-grey-dark;
+        }
+
+        &--heading {
+          background-size: 30% 150%;
+        }
+      }
+    }
+  }
+}

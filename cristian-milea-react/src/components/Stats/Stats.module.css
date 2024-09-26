@@ -61,6 +61,7 @@
   .stats-section__statistics {
     -moz-column-gap: 3rem;
          column-gap: 3rem;
+    width: 80%;
   }
 }
 .stats-section__statistics--elem {

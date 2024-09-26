@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Fear of Punk;
+  src: url("/assets/icons_and_fonts/FearOfAPunkPlanet-Zp1J.ttf");
+}
+.news {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+@media (max-width: 75em) {
+  .news {
+    width: 90%;
+  }
+}
+.news__group {
+  display: flex;
+  background-color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+@media (max-width: 75em) {
+  .news__group {
+    flex-direction: column;
+  }
+}
+.news__group--image-container {
+  min-width: 50%;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.news__group--img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 62%;
+     object-position: 62%;
+  transition: all 3s ease;
+}
+.news__group--content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  color: #121011;
+  padding: 3rem;
+}
+@media (max-width: 75em) {
+  .news__group--content {
+    padding: 2rem;
+  }
+}
+.news__group--heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding-top: 2rem;
+  background-image: linear-gradient(180deg, #ff002b 0%, #ff002b 1%, transparent 1%);
+  background-size: 0px 6px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  transition: all 0.4s ease;
+}
+.news__group--preview {
+  font-size: 1.6rem;
+  color: #b3a5ac;
+  font-weight: 300;
+}
+.news__group--btn {
+  margin-top: 20rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  width: 25%;
+  align-self: flex-end;
+  color: #b3a5ac;
+  transition: all 0.4s ease;
+}
+@media (max-width: 75em) {
+  .news__group--btn {
+    width: 14rem;
+    margin-top: 8rem;
+  }
+}
+.news__group:hover .news__group--img {
+  transform: scale(1.1);
+}
+.news__group:hover .news__group--btn {
+  color: #121011;
+}
+.news__group:hover .news__group--heading {
+  background-size: 30% 150%;
+}/*# sourceMappingURL=News.module.css.map */
